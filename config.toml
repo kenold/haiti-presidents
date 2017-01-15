@@ -1,3 +1,5 @@
 languageCode = "en-us"
 title = "Haitian Presidents"
 baseurl = "http://example.org/"
+
+theme = "haiti-presidents"

@@ -1,0 +1,10 @@
+{{ partial "header.html" }}
+
+<h3>Most Recent Presidents</h3>
+<ul  class="list-unstyled">
+    {{ range sort (where .Data.Pages "Section" "person") "Params.name" }}
+        {{ partial "components/person-list-item.html" . }}
+    {{ end }}
+</ul>
+
+{{ partial "footer.html" }}

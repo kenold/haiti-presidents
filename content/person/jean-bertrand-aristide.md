@@ -1,9 +1,9 @@
 ---
-_id: jean-bertrand-aristide
+id: jean-bertrand-aristide
 position: 53
 name: Jean-Bertrand Aristide
 categories: [President]
-type: Official
+isOfficial: true
 photo: jean-bertrand-aristide.jpg
 credits:
   - name:

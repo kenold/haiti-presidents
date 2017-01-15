@@ -1,27 +1,27 @@
 ---
-_id: jean-claude-duvalier
+id: jean-claude-duvalier
 position: 56
 name: Jean-Claude Duvalier
 categories: [President, "Prime Minister"]
-type: Official
+isOfficial: true
 photo: jean-claude-duvalier.jpg
 credits:
   - name:
   - url:
-birth_date: 1943-01-17
-birth_place: Port-au-Prince, Haiti
-death_date:
-death_place:
+birthDate: 1943-01-17
+birthPlace: Port-au-Prince, Haiti
+deathDate:
+deathPlace:
 terms:
   - id: 1
     start: 1996-02-07
     end: 2001-02-07
-    prime_ministers: Rene Garcia Preval
+    primeMinisters: Rene Garcia Preval
     predecessor: Ertha Pascal Trouillot
     successor: Jean-Bertrand Aristide
     status: Overthrown
-political_parties:
-  - name: 	Lavalas Political Organization
+politicalParties:
+  - name: Lavalas Political Organization
     period: 1991-1996
   - name: Fanmi Lavalas
     period: 1996-present

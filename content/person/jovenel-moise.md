@@ -3,7 +3,7 @@ _id: jovenel-moise
 position: 50
 name: Jovenel Moise
 categories: [President]
-type: Official
+isOfficial: true
 photo: jovenel-moise.jpg
 credits:
   - name:

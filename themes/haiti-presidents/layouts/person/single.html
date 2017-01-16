@@ -1,8 +1,7 @@
 {{ partial "header.html" }}
 <h2>{{ .Params.name }}
 {{ $count := len .Params.terms }}
-<small>(served {{ $count }}
-{{ if gt ($count) 1 }}terms{{ else }}term{{ end }})</small></h2>
+<small>(served {{ $count }}{{ if gt ($count) 1 }} terms{{ else }} term{{ end }})</small></h2>
 <p>{{ .Content }}</p>
 
 <!--  TERMS -->

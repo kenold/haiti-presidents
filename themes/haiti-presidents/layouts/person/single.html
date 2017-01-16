@@ -4,10 +4,10 @@
 <p>Photo: {{ .Params.photo }}</p>
 <p>Photo source: {{ .Params.credits.name }}</p>
 <h3>Personal Details:</h3>
-<p>Born: {{ .Params.birth_date }}</p>
+<p>Born: {{ dateFormat "Jan 2, 2006" .Params.birth_date }}</p>
 <h3>Terms:</h3>
     {{ range $term := .Params.terms }}
-        <li>{{ .start}} - {{ .end }}</li>
+        <li>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</li>
         <p>Priminister(s)</p>
             {{ $pm := $term.prime_ministers }}
             {{ range $pm }}

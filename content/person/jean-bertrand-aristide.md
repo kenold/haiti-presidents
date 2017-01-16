@@ -18,6 +18,7 @@ terms:
     end: 1991-09-29
     prime_ministers:
       - name: Rene Garcia Preval
+        period: 1998-2001
     predecessor: Ertha Pascal Trouillot
     successor: Raoul Cedras
     status: Overthrown

@@ -1,4 +1,5 @@
 <div class="col-md-4">
-    <img src="/images/presidents/{{ .Params.photo }}" class="img-thumbnail img-responsive" alt="{{ .Params.name }}">
-    <p><a href="{{ .Permalink }}">{{ .Params.name }}</a></p>
+    <a href="{{ .Permalink }}">
+        <img src="/images/presidents/{{ .Params.photo }}" class="img-thumbnail img-responsive" alt="{{ .Params.name }}">
+        <p>{{ .Params.name }}</p></a>
 </div>

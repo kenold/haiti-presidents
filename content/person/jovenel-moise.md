@@ -17,7 +17,8 @@ terms:
     start: 1991-02-07
     end: 1991-09-29
     prime_ministers:
-      - name: Roger Delphin
+      - name: John Doe
+        period: 1989-2003
     predecessor: Ertha Pascal Trouillot
     successor: Raoul Cedras
     status: Overthrown
@@ -26,7 +27,9 @@ terms:
     end: 1996-02-24
     prime_ministers:
       - name: Jean Marie Chérestal
+        period: 1989-2003
       - name: Yvon Neptune
+        period: 1981-1988
     predecessor: Emile Jonassaint
     successor: Rene Garcia Preval
     status: Overthrown
@@ -35,7 +38,9 @@ terms:
     end: 1996-02-24
     prime_ministers:
       - name: Jean Marie Chérestal
+        period: 1989-2003
       - name: Yvon Neptune
+        period: 1981-1988
     predecessor: Emile Jonassaint
     successor: Rene Garcia Preval
     status: Overthrown

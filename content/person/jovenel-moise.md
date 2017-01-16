@@ -34,8 +34,8 @@ terms:
     start: 1994-10-12
     end: 1996-02-24
     prime_ministers:
-      - Jean Marie Chérestal
-      - Yvon Neptune
+      - name: Jean Marie Chérestal
+      - name: Yvon Neptune
     predecessor: Emile Jonassaint
     successor: Rene Garcia Preval
     status: Overthrown

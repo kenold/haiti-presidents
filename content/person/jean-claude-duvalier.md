@@ -8,19 +8,20 @@ photo: jean-claude-duvalier.jpg
 credits:
   - name:
   - url:
-birthDate: 1943-01-17
-birthPlace: Port-au-Prince, Haiti
-deathDate:
-deathPlace:
+birth_date: 1943-01-17
+birth_place: Port-au-Prince, Haiti
+death_date:
+death_place:
 terms:
   - id: 1
     start: 1996-02-07
     end: 2001-02-07
-    primeMinisters: Rene Garcia Preval
+    prime_ministers:
+      - name: Rene Garcia Preval
     predecessor: Ertha Pascal Trouillot
     successor: Jean-Bertrand Aristide
     status: Overthrown
-politicalParties:
+political_parties:
   - name: Lavalas Political Organization
     period: 1991-1996
   - name: Fanmi Lavalas
@@ -39,4 +40,4 @@ facebook: renepreval
 instagram: renepreval
 wikipedia: https://en.wikipedia.org/wiki/Jean-Bertrand_Aristide
 ---
-Preval: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quia eos vitae rerum dignissimos illum at quae ullam assumenda, enim. Incidunt tenetur eum fugit rerum nam doloremque, fuga eaque dolorem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quia eos vitae rerum dignissimos illum at quae ullam assumenda, enim. Incidunt tenetur eum fugit rerum nam doloremque, fuga eaque dolorem.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quia eos vitae rerum dignissimos illum at quae ullam assumenda, enim. Incidunt tenetur eum fugit rerum nam doloremque, fuga eaque dolorem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quia eos vitae rerum dignissimos illum at quae ullam assumenda, enim. Incidunt tenetur eum fugit rerum nam doloremque, fuga eaque dolorem.

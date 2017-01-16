@@ -9,12 +9,11 @@
     {{ range $term := .Params.terms }}
         <h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4>
         <p>Priminister(s)</p>
-            {{ $pm := $term.prime_ministers }}
-            <ul>
-                {{ range $pm }}
-                    <li>{{ .name }} - {{ .period }}</li>
-                {{ end }}
-            </ul>
+        <ul>
+            {{ range $term.prime_ministers }}
+                <li>{{ .name }} - {{ .period }}</li>
+            {{ end }}
+        </ul>
         <p>Preceded by: {{ $term.predecessor }}</p>
         <p>Succeeded by: {{ $term.successor }}</p>
         <p>Status: {{ $term.status }}</p>

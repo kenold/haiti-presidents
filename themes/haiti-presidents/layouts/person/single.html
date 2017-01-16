@@ -1,5 +1,7 @@
 {{ partial "header.html" }}
-<h3>{{ .Params.name }}</h3>
+<h2>{{ .Params.name }}
+    <small>(served {{ len .Params.terms }}
+    {{ if gt (len .Params.terms) 1 }}terms{{ else }}term{{ end }})</small></h2>
 <p>{{ .Content }}</p>
 <h3>{{ .Params.name }} Personal Details:</h3>
 <p>Born: {{ dateFormat "Jan 2, 2006" .Params.birth_date }}</p>

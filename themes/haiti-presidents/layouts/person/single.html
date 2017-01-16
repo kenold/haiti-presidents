@@ -1,3 +1,19 @@
 {{ partial "header.html" }}
-{{ .Params.name }}
+<h3>{{ .Params.name }}</h3>
+<p>Official? {{ .Params.isOfficial }}</p>
+<p>Photo: {{ .Params.photo }}</p>
+<p>Photo source: {{ .Params.credits.name }}</p>
+<h3>Personal Details:</h3>
+<p>Born: {{ .Params.birth_date }}</p>
+<h3>Terms:</h3>
+    {{ range $term := .Params.terms }}
+        <li>{{ .start}} - {{ .end }}</li>
+        <p>Priminister(s)</p>
+            {{ $pm := $term.prime_ministers }}
+            {{ range $pm }}
+                <li>{{ .name }} {{ .period }}</li>
+            {{ end }}
+        <p>Predecessor: {{ $term.predecessor }}</p>
+        <p>Successor: {{ $term.successor }}</p>
+    {{ end }}
 {{ partial "footer.html" }}

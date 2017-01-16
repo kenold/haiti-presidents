@@ -3,3 +3,6 @@ title = "Haitian Presidents"
 baseurl = "http://example.org/"
 
 theme = "haiti-presidents"
+
+[permalinks]
+person = "/president/:filename/"

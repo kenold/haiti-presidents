@@ -4,10 +4,10 @@ position: 53
 name: Jean-Bertrand Aristide
 categories: [President]
 isOfficial: true
-photo: jean-bertrand-aristide.jpg
+photo: "jean-bertrand-aristide.jpg"
 credits:
-  - name:
-  - url:
+  name: "JL Network"
+  url:
 birth_date: 1943-01-17
 birth_place: Port-au-Prince, Haiti
 death_date:
@@ -16,7 +16,8 @@ terms:
   - id: 1
     start: 1991-02-07
     end: 1991-09-29
-    prime_ministers: Rene Garcia Preval
+    prime_ministers:
+      - name: Rene Garcia Preval
     predecessor: Ertha Pascal Trouillot
     successor: Raoul Cedras
     status: Overthrown
@@ -24,8 +25,10 @@ terms:
     start: 1994-10-12
     end: 1996-02-24
     prime_ministers:
-      - Jean Marie Chérestal
-      - Yvon Neptune
+      - name: Jean Marie Chérestal
+        period: 1994-1995
+      - name: Yvon Neptune
+        period: 1992-1994
     predecessor: Emile Jonassaint
     successor: Rene Garcia Preval
     status: Overthrown

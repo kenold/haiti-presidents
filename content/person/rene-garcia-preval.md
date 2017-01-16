@@ -6,8 +6,8 @@ categories: [President, "Prime Minister"]
 isOfficial: true
 photo: rene-garcia-preval.jpg
 credits:
-  - name:
-  - url:
+  name:
+  url:
 birth_date: 1943-01-17
 birth_place: Port-au-Prince, Haiti
 death_date:
@@ -16,12 +16,13 @@ terms:
   - id: 1
     start: 1996-02-07
     end: 2001-02-07
-    prime_ministers: Rene Garcia Preval
+    prime_ministers:
+      - name: Rene Garcia Preval
     predecessor: Ertha Pascal Trouillot
     successor: Jean-Bertrand Aristide
     status: Overthrown
 political_parties:
-  - name: 	Lavalas Political Organization
+  - name: Lavalas Political Organization
     period: 1991-1996
   - name: Fanmi Lavalas
     period: 1996-present

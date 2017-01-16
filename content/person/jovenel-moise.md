@@ -16,7 +16,8 @@ terms:
   - id: 1
     start: 1991-02-07
     end: 1991-09-29
-    prime_ministers: Rene Garcia Preval
+    prime_ministers:
+      - name: Roger Delphin
     predecessor: Ertha Pascal Trouillot
     successor: Raoul Cedras
     status: Overthrown
@@ -24,8 +25,8 @@ terms:
     start: 1994-10-12
     end: 1996-02-24
     prime_ministers:
-      - Jean Marie Chérestal
-      - Yvon Neptune
+      - name: Jean Marie Chérestal
+      - name: Yvon Neptune
     predecessor: Emile Jonassaint
     successor: Rene Garcia Preval
     status: Overthrown

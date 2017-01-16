@@ -15,8 +15,8 @@
                     <li>{{ .name }} - {{ .period }}</li>
                 {{ end }}
             </ul>
-        <p>Predecessor: {{ $term.predecessor }}</p>
-        <p>Successor: {{ $term.successor }}</p>
+        <p>Preceded by: {{ $term.predecessor }}</p>
+        <p>Succeeded by: {{ $term.successor }}</p>
         <p>Status: {{ $term.status }}</p>
     {{ end }}
 {{ partial "footer.html" }}

@@ -8,37 +8,30 @@
 
 <!--  TERMS -->
 <h3>{{ .Params.name }} Terms:</h3>
+
 <table class=table>
-    <tr>
-        <th class="text-center" colspan="2">term dates</td>
-    </tr>
-    <tr>
-        <th>Prime Ministers:</td>
-        <td>Rene Prevale (1987-1988)</td>
-    </tr>
-    <tr>
-        <th>Preceded by:</td>
-        <td>preceed name</td>
-    </tr>
-    <tr>
-        <th>Succeeded by:</td>
-        <td>succeed name</td>
-    </tr>
-    <tr>
-        <th>Status:</td>
-        <td>status</td>
-    </tr>
-</table>
     {{ range $term := .Params.terms }}
-        <h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4>
-        <p>Priminister(s)</p>
-        <ul>
-            {{ range $term.prime_ministers }}
-                <li>{{ .name }} - {{ .period }}</li>
-            {{ end }}
-        </ul>
-        <p>Preceded by: {{ $term.predecessor }}</p>
-        <p>Succeeded by: {{ $term.successor }}</p>
-        <p>Status: {{ $term.status }}</p>
+        <tr>
+            <th class="text-center" colspan="2"><h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4></td>
+        </tr>
+        {{ range $term.prime_ministers }}
+            <tr>
+                <th>Prime Ministers:</td>
+                <td>{{ .name }} ({{ .period }})</td>
+            </tr>
+        {{ end }}
+        <tr>
+            <th>Preceded by:</td>
+            <td>{{ $term.predecessor }}</td>
+        </tr>
+        <tr>
+            <th>Succeeded by:</td>
+            <td>{{ $term.successor }}</td>
+        </tr>
+        <tr>
+            <th>Status:</td>
+            <td>{{ $term.status }}</td>
+        </tr>
     {{ end }}
+</table>
 {{ partial "footer.html" }}

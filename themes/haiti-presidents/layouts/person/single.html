@@ -1,7 +1,8 @@
 {{ partial "header.html" }}
 <h2>{{ .Params.name }}
-    <small>(served {{ len .Params.terms }}
-    {{ if gt (len .Params.terms) 1 }}terms{{ else }}term{{ end }})</small></h2>
+    {{ $count := len .Params.terms }}
+    <small>(served {{ $count }}
+    {{ if gt ($count) 1 }}terms{{ else }}term{{ end }})</small></h2>
 <p>{{ .Content }}</p>
 <h3>{{ .Params.name }} Personal Details:</h3>
 <p>Born: {{ dateFormat "Jan 2, 2006" .Params.birth_date }}</p>
@@ -14,12 +15,14 @@
         <tr>
             <th class="text-center" colspan="2"><h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4></td>
         </tr>
-        {{ range $term.prime_ministers }}
-            <tr>
-                <th>Prime Ministers:</td>
-                <td>{{ .name }} ({{ .period }})</td>
-            </tr>
-        {{ end }}
+        <tr>
+            <th>Prime Ministers:</td>
+            <td>
+                {{ range $term.prime_ministers }}
+                    <p>{{ .name }} ({{ .period }})</p>
+                {{ end }}
+            </td>
+        </tr>
         <tr>
             <th>Preceded by:</td>
             <td>{{ $term.predecessor }}</td>

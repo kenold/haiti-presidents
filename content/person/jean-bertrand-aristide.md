@@ -21,7 +21,7 @@ terms:
         period: 1998-2001
     predecessor: Ertha Pascal Trouillot
     successor: Raoul Cedras
-    status: Overthrown
+    status: Exile
   - id: 2
     start: 1994-10-12
     end: 1996-02-24

@@ -11,11 +11,13 @@
     </tr>
     {{ range $term := .Params.terms }}
         <tr>
-            <th class="text-left" colspan="2"><h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4></td>
+            <th class="text-left" colspan="2">
+                <h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4>
+            </th>
         </tr>
         <tr>
 
-            <th>Prime Minister{{ if gt (len $term.prime_ministers) 1 }}s{{ end }}</td>
+            <th>Prime Minister{{ if gt (len $term.prime_ministers) 1 }}s{{ end }}</th>
             <td>
                 {{ range $term.prime_ministers }}
                     <p>{{ .name }} ({{ .period }})</p>
@@ -23,7 +25,7 @@
             </td>
         </tr>
         <tr>
-            <th>Preceded by</td>
+            <th>Preceded by</th>
             <td>{{ $term.predecessor }}</td>
         </tr>
         <tr>
@@ -31,7 +33,7 @@
             <td>{{ $term.successor }}</td>
         </tr>
         <tr>
-            <th>Status</td>
+            <th>Status</th>
             <td>{{ $term.status }}</td>
         </tr>
     {{ end }}
@@ -43,24 +45,35 @@
     <tr>
         <th>Born</th>
         <td>
-            <p>{{ dateFormat "Jan 2, 2006" .Params.birth_date }}</p>
-            <p>{{ .Params.birth_place }}</p>
+            <ul class=list-unstyled>
+                <li>{{ dateFormat "Jan 2, 2006" .Params.birth_date }}</li>
+                <li>{{ .Params.birth_place }}</li>
+            </ul>
+
         </td>
     </tr>
     <tr>
         <th>Political Party</th>
         <td>
-            {{ range .Params.political_parties }}
-                <p>{{ .name }} ({{ .period }})</p>
-            {{ end }}
+            <ul class="list-unstyled">
+                {{ range .Params.political_parties }}
+                    <li>{{ .name }}<br>
+                        ({{ .period }})
+                    </li>
+                {{ end }}
+            </ul>
         </td>
     </tr>
     <tr>
         <th>Spouse(s)</th>
         <td>
-            {{ range .Params.spouses }}
-                <p>{{ .name }} ({{ .period }})</p>
-            {{ end }}
+            <ul class="list-unstyled">
+                {{ range .Params.spouses }}
+                    <li>{{ .name }}<br>
+                        ({{ .period }})
+                    </li>
+                {{ end }}
+            </ul>
         </td>
     </tr>
     {{ if .Params.kids }}
@@ -75,7 +88,13 @@
     {{ end }}
     <tr>
         <th>Education</th>
-        <td><p>{{ delimit .Params.education "<p>" }}</td>
+        <td>
+            <ul class="list-unstyled">
+                {{ range .Params.education }}
+                    <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+        </td>
     </tr>
 </table>
 <!--  END PERSONAL DETAILS -->

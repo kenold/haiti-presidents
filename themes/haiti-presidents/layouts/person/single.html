@@ -13,7 +13,8 @@
             <th class="text-left" colspan="2"><h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4></td>
         </tr>
         <tr>
-            <th>Prime Ministers:</td>
+
+            <th>{{ if le (len $term.prime_ministers) 1 }}Prime Minister: {{ else }}Prime Ministers:{{ end }}</td>
             <td>
                 {{ range $term.prime_ministers }}
                     <p>{{ .name }} ({{ .period }})</p>

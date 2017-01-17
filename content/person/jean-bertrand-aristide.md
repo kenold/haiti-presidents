@@ -42,8 +42,8 @@ spouses:
   - name: Mildred Trouillot
     period: 1996-present
 kids:
-  - James Aristide
-  - Annie Aristide
+  - name: James Aristide
+  - name: Annie Aristide
 education: [Collège Notre-Dame, State University of Haiti, University of South Africa]
 religion: Roman Catholicism
 occupation: Priest

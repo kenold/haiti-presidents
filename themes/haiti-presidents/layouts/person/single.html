@@ -5,9 +5,10 @@
 <p>{{ .Content }}</p>
 
 <!--  TERMS -->
-<h3>{{ .Params.name }} Terms</h3>
-
 <table class=table>
+    <tr>
+        <td colspan="2"><h3>{{ .Params.name }} Terms</h3></td>
+    </tr>
     {{ range $term := .Params.terms }}
         <tr>
             <th class="text-left" colspan="2"><h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4></td>
@@ -34,12 +35,49 @@
             <td>{{ $term.status }}</td>
         </tr>
     {{ end }}
-</table>
-<!--  END TERMS -->
 
-<!--  PERSONAL DETAILS -->
-<h3>{{ .Params.name }} Personal Details</h3>
-<p>Born {{ dateFormat "Jan 2, 2006" .Params.birth_date }}</p>
+    <!--  PERSONAL DETAILS -->
+    <tr>
+        <td colspan="2"><h3>{{ .Params.name }} Personal Details</h3></td>
+    </tr>
+    <tr>
+        <th>Born</th>
+        <td>
+            <p>{{ dateFormat "Jan 2, 2006" .Params.birth_date }}</p>
+            <p>{{ .Params.birth_place }}</p>
+        </td>
+    </tr>
+    <tr>
+        <th>Political Party</th>
+        <td>
+            {{ range .Params.political_parties }}
+                <p>{{ .name }} ({{ .period }})</p>
+            {{ end }}
+        </td>
+    </tr>
+    <tr>
+        <th>Spouse(s)</th>
+        <td>
+            {{ range .Params.spouses }}
+                <p>{{ .name }} ({{ .period }})</p>
+            {{ end }}
+        </td>
+    </tr>
+    {{ if .Params.kids }}
+    <tr>
+        <th>Children</th>
+        <td>
+            {{ range .Params.kids }}
+                <p>{{ .name }}</p>
+            {{ end }}
+        </td>
+    </tr>
+    {{ end }}
+    <tr>
+        <th>Education</th>
+        <td><p>{{ delimit .Params.education "<p>" }}</td>
+    </tr>
+</table>
 <!--  END PERSONAL DETAILS -->
 
 {{ partial "footer.html" }}

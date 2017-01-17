@@ -1,11 +1,11 @@
 {{ partial "header.html" }}
 <h2>{{ .Params.name }}
 {{ $count := len .Params.terms }}
-<small>(served {{ $count }}{{ if gt ($count) 1 }} terms{{ else }} term{{ end }})</small></h2>
+<small>(served {{ $count }} term{{ if gt ($count) 1 }}s{{ end }})</small></h2>
 <p>{{ .Content }}</p>
 
 <!--  TERMS -->
-<h3>{{ .Params.name }} Terms:</h3>
+<h3>{{ .Params.name }} Terms</h3>
 
 <table class=table>
     {{ range $term := .Params.terms }}
@@ -14,7 +14,7 @@
         </tr>
         <tr>
 
-            <th>{{ if le (len $term.prime_ministers) 1 }}Prime Minister: {{ else }}Prime Ministers:{{ end }}</td>
+            <th>Prime Minister{{ if gt (len $term.prime_ministers) 1 }}s{{ end }}</td>
             <td>
                 {{ range $term.prime_ministers }}
                     <p>{{ .name }} ({{ .period }})</p>
@@ -22,15 +22,15 @@
             </td>
         </tr>
         <tr>
-            <th>Preceded by:</td>
+            <th>Preceded by</td>
             <td>{{ $term.predecessor }}</td>
         </tr>
         <tr>
-            <th>Succeeded by:</td>
+            <th>Succeeded by</td>
             <td>{{ $term.successor }}</td>
         </tr>
         <tr>
-            <th>Status:</td>
+            <th>Status</td>
             <td>{{ $term.status }}</td>
         </tr>
     {{ end }}
@@ -38,8 +38,8 @@
 <!--  END TERMS -->
 
 <!--  PERSONAL DETAILS -->
-<h3>{{ .Params.name }} Personal Details:</h3>
-<p>Born: {{ dateFormat "Jan 2, 2006" .Params.birth_date }}</p>
+<h3>{{ .Params.name }} Personal Details</h3>
+<p>Born {{ dateFormat "Jan 2, 2006" .Params.birth_date }}</p>
 <!--  END PERSONAL DETAILS -->
 
 {{ partial "footer.html" }}

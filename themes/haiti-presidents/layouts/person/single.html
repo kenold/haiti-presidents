@@ -99,4 +99,16 @@
 </table>
 <!--  END PERSONAL DETAILS -->
 
+<!-- RELATED NEWS -->
+<h1>Related News</h1>
+
+<ul>
+  {{ range (where .Site.Pages "Section" "post") }}
+    {{ if eq .Params.person .Params.name }}
+      {{ partial "components/post-list-item.html" . }}
+    {{ end }}
+  {{ end }}
+</ul>
+
+<!-- END RELATED NEWS -->
 {{ partial "footer.html" }}

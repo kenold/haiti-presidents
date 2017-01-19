@@ -1,0 +1,7 @@
+{{ partial "header.html" }}
+    <h2>{{ .Title }}</h2>
+    <p>{{ .Content }}</p>
+
+    <p>This article is related to <a href="/president/{{ .Params.person | urlize }}">{{ .Params.person }}</a></p>
+    <p class="text-muted">Tags: {{ delimit .Params.tags ", " }}</p>
+{{ partial "footer.html" }}

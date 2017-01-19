@@ -1,12 +1,18 @@
 {{ partial "header.html" }}
 
 <h3>Most Recent Presidents</h3>
-<ul  class="list-unstyled">
-    {{ range sort (where .Data.Pages "Section" "person") "Params.name" }}
-        {{ partial "components/person-list-item.html" . }}
-    {{ end }}
-</ul>
+<div class="row">
+    <ul  class="list-unstyled">
+        {{ range sort (where .Data.Pages "Section" "person") "Params.name" }}
+            {{ partial "components/person-list-item.html" . }}
+        {{ end }}
+    </ul>
+</div>
 
+<h3>Quotes</h3>
+{{ range index $.Site.Data.quotes }}
+    {{ . }}
+{{ end }}
 {{ partial "footer.html" }}
 
 <!--TODO: Print to PDF

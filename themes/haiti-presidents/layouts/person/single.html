@@ -115,4 +115,15 @@
 </ul>
 <!-- END RELATED NEWS -->
 
+<!-- QUOTES -->
+<h3>Quotes</h3>
+{{ range $.Site.Data.quotes }}
+    {{ range . }}
+        {{ .person }}
+        {{ range .data }}
+            <li>{{ .quote }}</li>
+        {{ end }}
+    {{ end }}
+{{ end }}
+<!-- QUOTES -->
 {{ partial "footer.html" }}

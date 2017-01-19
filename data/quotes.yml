@@ -1,12 +1,12 @@
 jean-bertrand-aristide:
   quotes:
-  - quote: "Your tool in hand, your instrument in hand, your constitution in hand! Don't hesitate to give him what he deserves."
-    event: White House Dinner
-    when:
-    position: 1
+    - quote: "Your tool in hand, your instrument in hand, your constitution in hand! Don't hesitate to give him what he deserves."
+      event: White House Dinner
+      when:
+      position: 1
 rene-garcia-preval:
   quotes:
-  - quote: "Naje Pou Soti"
-    event: "Haiti hurricane Wilma"
-    when:
-    position: 1
+    - quote: "Naje Pou Soti"
+      event: "Haiti hurricane Wilma"
+      when:
+      position: 1

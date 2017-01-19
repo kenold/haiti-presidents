@@ -1,0 +1,14 @@
+jean-bertrand-aristide:
+  images:
+  - caption: "Aristide and Bill Clinton"
+    credit_name: "Kenold Beauplan"
+    credit_url: twitter.com/kenoldb
+    file: jean-bertrand-aristide.jpg
+    position: 1
+rene-garcia-preval:
+  images:
+  - caption: "Rene Preval at Santo-Domingo"
+    credit_name: "Kenold Beauplan"
+    credit_url: twitter.com/kenoldb
+    file: rene-garcia-preval.jpg
+    position: 1

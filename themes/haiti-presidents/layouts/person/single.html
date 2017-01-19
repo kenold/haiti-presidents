@@ -100,15 +100,19 @@
 <!--  END PERSONAL DETAILS -->
 
 <!-- RELATED NEWS -->
-<h1>Related News</h1>
+{{ $person := .Params.name }}
+<h1>{{ $person }} News</h1>
 
 <ul>
-  {{ range (where .Site.Pages "Section" "post") }}
-    {{ if eq .Params.person .Params.name }}
-      {{ partial "components/post-list-item.html" . }}
+    {{ range (where .Site.Pages "Section" "post") }}
+        {{ $post_person := .Params.person }}
+        {{ if eq $post_person $person }}
+            {{ partial "components/post-list-item.html" . }}
+        {{ else }}
+            <p>No related news!</p>
+        {{ end }}
     {{ end }}
-  {{ end }}
 </ul>
-
 <!-- END RELATED NEWS -->
+
 {{ partial "footer.html" }}

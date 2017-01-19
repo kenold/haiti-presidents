@@ -1,12 +1,23 @@
-jean-bertrand-aristide:
-  quotes:
+---
+quotes:
+- person: "Jean-Bertrand Aristide"
+  data:
     - quote: "Your tool in hand, your instrument in hand, your constitution in hand! Don't hesitate to give him what he deserves."
-      event: White House Dinner
+      event: "White House Dinner"
       when:
       position: 1
-rene-garcia-preval:
-  quotes:
-    - quote: "Naje Pou Soti"
-      event: "Haiti hurricane Wilma"
+    - quote: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut corporis blanditiis tempore"
+      event: "Hurricane Press Interview"
+      when:
+      position: 2
+- person: "Rene Garcia Preval"
+  data:
+    - quote: "Aut corporis blanditiis tempore."
+      event: "White House Dinner"
       when:
       position: 1
+    - quote: "Consectetur adipisicing elit. Aut corporis blanditiis tempore"
+      event: "Hurricane Press Interview"
+      when:
+      position: 2
+---

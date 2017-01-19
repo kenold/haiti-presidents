@@ -101,7 +101,7 @@
 
 <!-- RELATED NEWS -->
 {{ $person := .Params.name }}
-<h1>{{ $person }} News</h1>
+<h3>{{ $person }} News</h3>
 
 <ul>
     {{ range (where .Site.Pages "Section" "post") }}
@@ -109,7 +109,7 @@
         {{ if eq $post_person $person }}
             {{ partial "components/post-list-item.html" . }}
         {{ else }}
-            <p>No related news!</p>
+            <li>No related news!</li>
         {{ end }}
     {{ end }}
 </ul>

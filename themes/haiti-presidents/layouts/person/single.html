@@ -16,7 +16,6 @@
             </th>
         </tr>
         <tr>
-
             <th>Prime Minister{{ if gt (len $term.prime_ministers) 1 }}s{{ end }}</th>
             <td>
                 {{ range $term.prime_ministers }}
@@ -123,6 +122,7 @@
         {{ range .quotes | shuffle | first 1 }}
             <blockquote>
                 {{ .quote }}
+                <footer>at {{ .event }} on {{ dateFormat "Jan 2, 2006" .date }}</footer>
             </blockquote>
         {{ end }}
     {{ end }}

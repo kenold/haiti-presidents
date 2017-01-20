@@ -117,13 +117,16 @@
 
 <!-- QUOTES -->
 <h3>Quotes</h3>
-{{ range $.Site.Data.quotes }}
-    {{ range . }}
-        {{ .person }}
-        {{ range .data }}
-            <li>{{ .quote }}</li>
+{{ $current_person := .Params.name }}
+{{ range .Site.Data.quotes.people }}
+    {{ if eq .person $current_person }}
+        {{ range .quotes | shuffle | first 1 }}
+            <blockquote>
+                {{ .quote }}
+            </blockquote>
         {{ end }}
     {{ end }}
 {{ end }}
-<!-- QUOTES -->
+<!-- END QUOTES -->
+
 {{ partial "footer.html" }}

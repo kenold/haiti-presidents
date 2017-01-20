@@ -3,7 +3,7 @@ people:
     quotes:
       - quote: "Your tool in hand, your instrument in hand, your constitution in hand! Don't hesitate to give him what he deserves."
         event: "Haiti hurricane Wilma"
-        when: 2016-12-10
+        date: 2016-12-10
         position: 1
       - quote: "quote 2 here"
         position: 2
@@ -11,9 +11,9 @@ people:
     quotes:
       - quote: "Naje Pou Soti"
         event: "Haiti hurricane Wilma"
-        when: 2016-12-10
+        date: 2016-12-10
         position: 1
       - quote: "quote 4 here"
         event: " no place"
-        when: 2016-12-10
+        date: 2016-12-10
         position: 2

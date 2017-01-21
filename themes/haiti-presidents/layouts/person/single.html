@@ -114,6 +114,15 @@
 </ul>
 <!-- END RELATED NEWS -->
 
+<!--  PHOTOS -->
+<h2>{{ .Params.name }} Photos</h2>
+{{ $person := index .Site.Data.photos (.File.TranslationBaseName) }}
+{{ range $person.images }}
+    <img src="/images/galleries/{{ $.File.TranslationBaseName }}/{{ .file }}" alt="{{ .Params.caption }}">
+    <p>{{ .caption }}</p>
+{{ end }}
+<!-- END PHOTOS -->
+
 <!-- QUOTES -->
 <h3>Quotes</h3>
 {{ $current_person := .Params.name }}

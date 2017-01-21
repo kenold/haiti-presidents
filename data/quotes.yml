@@ -5,15 +5,9 @@ people:
         event: "Haiti hurricane Wilma"
         date: 2016-12-10
         position: 1
-      - quote: "quote 2 here"
-        position: 2
   - person: "Rene Garcia Preval"
     quotes:
       - quote: "Naje Pou Soti"
         event: "Haiti hurricane Wilma"
         date: 2016-12-10
         position: 1
-      - quote: "quote 4 here"
-        event: " no place"
-        date: 2016-12-10
-        position: 2

@@ -124,17 +124,13 @@
 <!-- END PHOTOS -->
 
 <!-- QUOTES -->
-<h3>Quotes</h3>
-{{ $current_person := .Params.name }}
-{{ range .Site.Data.quotes.people }}
-    {{ if eq .person $current_person }}
-        {{ range .quotes | shuffle | first 1 }}
-            <blockquote>
-                {{ .quote }}
-                <footer>at {{ .event }} on {{ dateFormat "Jan 2, 2006" .date }}</footer>
-            </blockquote>
-        {{ end }}
-    {{ end }}
+<h2>{{ .Params.name }} Quotes</h2>
+{{ $person := index .Site.Data.quotes (.File.TranslationBaseName) }}
+{{ range $person.quotes | shuffle | first 1 }}
+    <blockquote>
+        {{ .quote }}
+        <footer>at {{ .event }} on {{ dateFormat "Jan 2, 2006" .date }}</footer>
+    </blockquote>
 {{ end }}
 <!-- END QUOTES -->
 

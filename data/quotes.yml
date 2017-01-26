@@ -10,3 +10,9 @@ rene-garcia-preval:
     event: "Haiti hurricane Wilma"
     date: 2012-09-05
     position: 1
+jovenel-moise:
+  quotes:
+  - quote: "In Haiti, when you come from the countryside, the people here in Port-au-Prince, they think they know everything. But it's not true and I'm the example. In the countryside you have good people also — with knowledge, with vision, with capacity."
+    event: "Election Night"
+    date: 2012-09-05
+    position: 1

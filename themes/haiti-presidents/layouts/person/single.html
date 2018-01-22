@@ -130,7 +130,7 @@
 <!-- QUOTES -->
 <h2>{{ .Params.name }} Quotes</h2>
 {{ $person := index .Site.Data.quotes (.File.TranslationBaseName) }}
-{{ range $person.quotes | shuffle | first 1 }}
+{{ range $person.quotes }}
     <blockquote>
         {{ .quote }}
         <footer>at {{ .event }} on {{ dateFormat "Jan 2, 2006" .date }}</footer>

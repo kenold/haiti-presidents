@@ -114,16 +114,10 @@ matches current .Params.name -->
 {{ $relatedPosts := where ($posts) ".Params.person" "=" .Params.name }}        
 
 {{ range $relatedPosts }}
-    {{ if .Params.person }} 
-        <p>TEST: Related news found</p>
-        <ul>
-            {{ partial "components/post-list-item.html" . }}
-        </ul>
-    {{ else }}
-        <p>No related news.</p>
-    {{ end }}                                  
-{{ end }} 
-    
+    <ul>
+        {{ partial "components/post-list-item.html" . }}
+    </ul>                   
+{{ end }}
 
 <!--  PHOTOS -->
 <h2>{{ .Params.name }} Photos</h2>

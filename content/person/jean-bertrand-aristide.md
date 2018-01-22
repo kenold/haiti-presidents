@@ -47,7 +47,7 @@ kids:
 education: [Collège Notre-Dame, State University of Haiti, University of South Africa]
 religion: Roman Catholicism
 occupation: Priest
-tags: [titid, lavalas, fanmi-lavalas]
+tags: [titid, lavalas, fanmi-lavalas, tet kok la]
 website:
 wikipedia: https://en.wikipedia.org/wiki/Jean-Bertrand_Aristide
 ---

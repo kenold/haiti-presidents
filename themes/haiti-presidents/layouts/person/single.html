@@ -99,20 +99,24 @@
 <!--  END PERSONAL DETAILS -->
 
 <!-- RELATED NEWS -->
-{{ $person := .Params.name }}
-<h3>{{ $person }} News</h3>
 
-<ul>
-    {{ range (where .Site.Pages "Section" "post") }}
-        {{ $post_person := .Params.person }}
-        {{ if eq $post_person $person }}
-            {{ partial "components/post-list-item.html" . }}
-        {{ else }}
-            <li>No related news!</li>
-        {{ end }}
-    {{ end }}
-</ul>
-<!-- END RELATED NEWS -->
+<!-- set person name -->
+{{ $person := .Params.name }}
+
+<h2>{{ $person }} News</h2>
+
+<!-- set posts -->
+{{ $posts := where .Site.Pages "Section" "post" }}
+
+<!-- find all posts
+    where .Params.person in 'post' section
+    matches current .Params.name -->
+    {{ $relatedPosts := where ($posts) ".Params.person" "=" .Params.name }}
+    <ul>
+        {{ range (where $relatedPosts ".Params.person" "ne" nil) }}        
+            {{ partial "components/post-list-item.html" . }}                                      
+        {{ end }} 
+    </ul>
 
 <!--  PHOTOS -->
 <h2>{{ .Params.name }} Photos</h2>

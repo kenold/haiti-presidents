@@ -1,142 +1,143 @@
-{{ partial "header.html" }}
-<h2>{{ .Params.name }}
-{{ $count := len .Params.terms }}
-<small>(served {{ $count }} term{{ if gt ($count) 1 }}s{{ end }})</small></h2>
-<p>{{ .Content }}</p>
+{{ define "main" }}
 
-<!--  TERMS -->
-<table class=table>
-    <tr>
-        <td colspan="2"><h3>{{ .Params.name }} Terms</h3></td>
-    </tr>
-    {{ range $term := .Params.terms }}
-        <tr class="info">
-            <th colspan="2">
-                <h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4>
-            </th>
+    <h2>{{ .Params.name }}
+    {{ $count := len .Params.terms }}
+    <small>(served {{ $count }} term{{ if gt ($count) 1 }}s{{ end }})</small></h2>
+    <p>{{ .Content }}</p>
+
+    <!--  TERMS -->
+    <table class=table>
+        <tr>
+            <td colspan="2"><h3>{{ .Params.name }} Terms</h3></td>
+        </tr>
+        {{ range $term := .Params.terms }}
+            <tr class="info">
+                <th colspan="2">
+                    <h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4>
+                </th>
+            </tr>
+            <tr>
+                <th>Prime Minister{{ if gt (len $term.prime_ministers) 1 }}s{{ end }}</th>
+                <td>
+                    {{ range $term.prime_ministers }}
+                        <p>{{ .name }} ({{ .period }})</p>
+                    {{ end }}
+                </td>
+            </tr>
+            <tr>
+                <th>Preceded by</th>
+                <td>{{ $term.predecessor }}</td>
+            </tr>
+            <tr>
+                <th>Succeeded by</td>
+                <td>{{ $term.successor }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ $term.status }}</td>
+            </tr>
+        {{ end }}
+
+        <!--  PERSONAL DETAILS -->
+        <tr>
+            <td colspan="2"><h3>{{ .Params.name }} Personal Details</h3></td>
         </tr>
         <tr>
-            <th>Prime Minister{{ if gt (len $term.prime_ministers) 1 }}s{{ end }}</th>
+            <th>Born</th>
             <td>
-                {{ range $term.prime_ministers }}
-                    <p>{{ .name }} ({{ .period }})</p>
-                {{ end }}
+                <ul class=list-unstyled>
+                    <li>{{ dateFormat "Jan 2, 2006" .Params.birth_date }}</li>
+                    <li>{{ .Params.birth_place }}</li>
+                </ul>
+
             </td>
         </tr>
         <tr>
-            <th>Preceded by</th>
-            <td>{{ $term.predecessor }}</td>
+            <th>Political Party</th>
+            <td>
+                <ul class="list-unstyled">
+                    {{ range .Params.political_parties }}
+                        <li>{{ .name }}<br>
+                            ({{ .period }})
+                        </li>
+                    {{ end }}
+                </ul>
+            </td>
         </tr>
         <tr>
-            <th>Succeeded by</td>
-            <td>{{ $term.successor }}</td>
+            <th>Spouse(s)</th>
+            <td>
+                <ul class="list-unstyled">
+                    {{ range .Params.spouses }}
+                        <li>{{ .name }}<br>
+                            ({{ .period }})
+                        </li>
+                    {{ end }}
+                </ul>
+            </td>
         </tr>
+        {{ if .Params.kids }}
         <tr>
-            <th>Status</th>
-            <td>{{ $term.status }}</td>
+            <th>Children</th>
+            <td>
+                {{ range .Params.kids }}
+                    <p>{{ .name }}</p>
+                {{ end }}
+            </td>
         </tr>
+        {{ end }}
+        <tr>
+            <th>Education</th>
+            <td>
+                <ul class="list-unstyled">
+                    {{ range .Params.education }}
+                        <li>{{ . }}</li>
+                    {{ end }}
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <!--  END PERSONAL DETAILS -->
+
+    <!-- RELATED NEWS -->
+
+    <!-- set person name -->
+    {{ $person := .Params.name }}
+
+    <h2>{{ $person }} News</h2>
+
+    <!-- set posts -->
+    {{ $posts := where .Site.Pages "Section" "post" }}
+
+    <!-- find all posts
+    where .Params.person in 'post' section
+    matches current .Params.name -->
+    {{ $relatedPosts := where ($posts) ".Params.person" "=" .Params.name }}        
+
+    {{ range $relatedPosts }}
+        <ul>
+            {{ partial "components/post-list-item.html" . }}
+        </ul>                   
     {{ end }}
 
-    <!--  PERSONAL DETAILS -->
-    <tr>
-        <td colspan="2"><h3>{{ .Params.name }} Personal Details</h3></td>
-    </tr>
-    <tr>
-        <th>Born</th>
-        <td>
-            <ul class=list-unstyled>
-                <li>{{ dateFormat "Jan 2, 2006" .Params.birth_date }}</li>
-                <li>{{ .Params.birth_place }}</li>
-            </ul>
-
-        </td>
-    </tr>
-    <tr>
-        <th>Political Party</th>
-        <td>
-            <ul class="list-unstyled">
-                {{ range .Params.political_parties }}
-                    <li>{{ .name }}<br>
-                        ({{ .period }})
-                    </li>
-                {{ end }}
-            </ul>
-        </td>
-    </tr>
-    <tr>
-        <th>Spouse(s)</th>
-        <td>
-            <ul class="list-unstyled">
-                {{ range .Params.spouses }}
-                    <li>{{ .name }}<br>
-                        ({{ .period }})
-                    </li>
-                {{ end }}
-            </ul>
-        </td>
-    </tr>
-    {{ if .Params.kids }}
-    <tr>
-        <th>Children</th>
-        <td>
-            {{ range .Params.kids }}
-                <p>{{ .name }}</p>
-            {{ end }}
-        </td>
-    </tr>
+    <!--  PHOTOS -->
+    <h2>{{ .Params.name }} Photos</h2>
+    {{ $person := index .Site.Data.photos (.File.TranslationBaseName) }}
+    {{ range $person.images }}
+        <img src="/images/galleries/{{ $.File.TranslationBaseName }}/{{ .file }}" alt="{{ .Params.caption }}">
+        <p>{{ .caption }}</p>
     {{ end }}
-    <tr>
-        <th>Education</th>
-        <td>
-            <ul class="list-unstyled">
-                {{ range .Params.education }}
-                    <li>{{ . }}</li>
-                {{ end }}
-            </ul>
-        </td>
-    </tr>
-</table>
-<!--  END PERSONAL DETAILS -->
+    <!-- END PHOTOS -->
 
-<!-- RELATED NEWS -->
+    <!-- QUOTES -->
+    <h2>{{ .Params.name }} Quotes</h2>
+    {{ $person := index .Site.Data.quotes (.File.TranslationBaseName) }}
+    {{ range $person.quotes }}
+        <blockquote>
+            {{ .quote }}
+            <footer>at {{ .event }} on {{ dateFormat "Jan 2, 2006" .date }}</footer>
+        </blockquote>
+    {{ end }}
+    <!-- END QUOTES -->
 
-<!-- set person name -->
-{{ $person := .Params.name }}
-
-<h2>{{ $person }} News</h2>
-
-<!-- set posts -->
-{{ $posts := where .Site.Pages "Section" "post" }}
-
-<!-- find all posts
-where .Params.person in 'post' section
-matches current .Params.name -->
-{{ $relatedPosts := where ($posts) ".Params.person" "=" .Params.name }}        
-
-{{ range $relatedPosts }}
-    <ul>
-        {{ partial "components/post-list-item.html" . }}
-    </ul>                   
 {{ end }}
-
-<!--  PHOTOS -->
-<h2>{{ .Params.name }} Photos</h2>
-{{ $person := index .Site.Data.photos (.File.TranslationBaseName) }}
-{{ range $person.images }}
-    <img src="/images/galleries/{{ $.File.TranslationBaseName }}/{{ .file }}" alt="{{ .Params.caption }}">
-    <p>{{ .caption }}</p>
-{{ end }}
-<!-- END PHOTOS -->
-
-<!-- QUOTES -->
-<h2>{{ .Params.name }} Quotes</h2>
-{{ $person := index .Site.Data.quotes (.File.TranslationBaseName) }}
-{{ range $person.quotes }}
-    <blockquote>
-        {{ .quote }}
-        <footer>at {{ .event }} on {{ dateFormat "Jan 2, 2006" .date }}</footer>
-    </blockquote>
-{{ end }}
-<!-- END QUOTES -->
-
-{{ partial "footer.html" }}

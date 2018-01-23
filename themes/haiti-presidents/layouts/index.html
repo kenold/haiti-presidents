@@ -1,19 +1,20 @@
-{{ partial "header.html" }}
+{{ define "main" }}
 
-<h3>Most Recent Presidents</h3>
-<div class="row">
-    <ul  class="list-unstyled">
-        {{ range sort (where .Data.Pages "Section" "person") "Params.name" }}
-            {{ partial "components/person-list-item.html" . }}
-        {{ end }}
-    </ul>
-</div>
-{{ partial "footer.html" }}
+    <h3>Most Recent Presidents</h3>
+    <div class="row">
+        <ul  class="list-unstyled">
+            {{ range sort (where .Data.Pages "Section" "person") "Params.name" }}
+                {{ partial "components/person-list-item.html" . }}
+            {{ end }}
+        </ul>
+    </div>
 
-<!--TODO: Print to PDF
-    TODO: Add donate link
-    TODO: Add take-down info in footer
-    TODO: Give wikipedia credit for data source
-    TODO: Add schema
-    TODO: Change text to "Succeeding" if it's current president
--->
+    <!--TODO: Print to PDF
+        TODO: Add donate link
+        TODO: Add take-down info in footer
+        TODO: Give wikipedia credit for data source
+        TODO: Add schema
+        TODO: Change text to "Succeeding" if it's current president
+    -->
+
+{{ end }}

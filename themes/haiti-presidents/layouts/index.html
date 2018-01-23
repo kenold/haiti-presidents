@@ -3,7 +3,7 @@
     <h3>Most Recent Presidents</h3>
     <div class="row">
         <ul  class="list-unstyled">
-            {{ range sort (where .Data.Pages "Section" "person") "Params.name" }}
+            {{ range sort (where .Data.Pages "Section" "person") "Params.position" }}
                 {{ partial "components/person-list-item.html" . }}
             {{ end }}
         </ul>

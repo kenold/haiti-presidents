@@ -107,17 +107,23 @@
     <h2>{{ $person }} News</h2>
 
     <!-- set posts -->
-    {{ $posts := where .Site.Pages "Section" "post" }}
+    {{ $posts := (where .Site.RegularPages ".Params.person" "=" .Params.name) }}
+    
+    <!-- set post counts -->
+    {{ $postCount := len $posts }}
+    
+    {{ if gt $postCount 0 }}
+        <!-- if post count is > 0, find all posts where .Params.person in 'post' type
+        matches .Params.name in person type -->
+        {{ $relatedPosts := where ($posts) ".Params.person" "=" .Params.name }}        
 
-    <!-- find all posts
-    where .Params.person in 'post' section
-    matches current .Params.name -->
-    {{ $relatedPosts := where ($posts) ".Params.person" "=" .Params.name }}        
-
-    {{ range $relatedPosts }}
-        <ul>
-            {{ partial "components/post-list-item.html" . }}
-        </ul>                   
+        {{ range $relatedPosts }}
+            <ul>
+                {{ partial "components/post-list-item.html" . }}
+            </ul>                   
+        {{ end }}
+    {{ else }}
+        <p>No related news.</p>
     {{ end }}
 
     <!--  PHOTOS -->

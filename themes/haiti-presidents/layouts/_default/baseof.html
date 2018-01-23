@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+<head>
+	{{ .Hugo.Generator }}
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ block "title" . }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+	<link type="text/css" href="{{ .Site.BaseURL }}/css/bootstrap.min.css" rel="stylesheet">
+	<link type="text/css" href="{{ .Site.BaseURL }}/css/style.css" rel="stylesheet">
+	{{ with .Description }}<meta name="description" content="{{ . }}"> {{ end }}
+	<!-- noindex meta -->
+	{{ $default_noindex_kinds := slice "section" "taxonomy" "taxonomyTerm" }}
+	{{ $noindex_kinds := .Site.Params.noindex_kinds | default $default_noindex_kinds }}
+	{{ $is_noindex_true := and (isset .Params "noindex") .Params.noindex }}
+	{{ if or (in $noindex_kinds .Kind) ($is_noindex_true) }}
+		<meta name="robots" content="noindex">
+	{{ end }}
+
+	{{ partial "meta/name-author" . }}
+	{{ template "_internal/opengraph.html" . }}
+	{{ partial "meta/ogimage" . }}
+	<!-- Site verification -->
+	{{ if .IsHome }} {{ partial "site-verification" . }} {{ end }}
+	<!-- add googleAnalytics in config.toml -->
+	{{ template "_internal/google_analytics_async.html" . }}
+
+	<!-- googleAnalytics outbound link tracking -->
+	<script>      
+		var trackOutboundLink = function(url) {
+			ga('send', 'event', 'outbound', 'click', url, {
+			'transport': 'beacon',
+			'hitCallback': function(){document.location = url;}
+			});
+		}
+	</script>
+
+	{{ if .RSSLink }}
+		<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+	{{ end }}
+
+	<link rel="canonical" href="{{ .Permalink }}"> {{ if (isset .Params "prev") }}
+	<link rel="prev" href="{{ .Params.prev }}"> {{ end }} {{ if (isset .Params "next") }}
+	<link rel="next" href="{{ .Params.next }}"> {{ end }}
+
+	{{ partial "favicon" . }}
+</head>
+
+<body>
+	<nav>{{ partial "nav.html" }}</nav>
+  	<header>{{ block "header" . }}{{ end }}</header>
+  	<main>
+    <div class="container">		
+		{{ block "main" . }}{{ end }}
+	</main>
+
+  	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">&copy Haitian Presidents</p>
+		</div>
+	</footer>
+
+</body>
+</html>

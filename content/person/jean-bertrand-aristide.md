@@ -2,8 +2,7 @@
 id: jean-bertrand-aristide
 position: 53
 name: Jean-Bertrand Aristide
-categories: [President]
-isOfficial: true
+categories: ["President", "Lavalas"]
 photo: "jean-bertrand-aristide.jpg"
 credits:
   name: "JL Network"
@@ -47,7 +46,7 @@ kids:
 education: [Collège Notre-Dame, State University of Haiti, University of South Africa]
 religion: Roman Catholicism
 occupation: Priest
-tags: [titid, lavalas, fanmi-lavalas, tet kok la]
+tags: [titid, lavalas, fanmi-lavalas, tet kok la, exile, overthrown]
 website:
 wikipedia: https://en.wikipedia.org/wiki/Jean-Bertrand_Aristide
 summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quia eos vitae rerum dignissimos illum at quae ullam assumenda, enim."

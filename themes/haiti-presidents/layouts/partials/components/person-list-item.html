@@ -1,10 +1,10 @@
-<div class="col-md-6">
-	<div class="card flex-md-row mb-4 box-shadow h-md-250">
-		<a href="{{ .Permalink }}"><img class="card-img-right flex-auto img-fluid" 
-			src="/images/presidents/{{ .Params.photo }}" alt="{{ .Params.name }}">
+<div class="col-12 col-md-6">
+	<div class="card flex-row mb-4 box-shadow">
+		<a href="{{ .Permalink }}">
+            <img class="card-img-left flex-auto w-200" src="/images/presidents/{{ .Params.photo }}" alt="{{ .Params.name }}">
 		</a>
 		<div class="card-body d-flex flex-column align-items-start">
-			<strong class="d-inline-block mb-2 text-success">#{{ .Params.position }}</strong>
+			<strong class="d-inline-block mb-2 text-blue">#{{ .Params.position }}</strong>
 			<h3 class="mb-0">
 				<a class="text-dark" href="{{ .Permalink }}">{{ .Params.name }}</a>
 			</h3>
@@ -12,5 +12,4 @@
 			<p class="card-text mb-auto">{{ .Params.summary }}</p>			
 		</div>		
 	</div>
-</div>             
-
+</div>

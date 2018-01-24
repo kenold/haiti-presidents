@@ -1,6 +1,25 @@
-.card-img-right {
-  height: 100%;
+body {
+  background: #f6f6f6;
+  color: #293340;
+  font-family: "Source Sans Pro", Arial, "Helvetica Neue", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.66667;
+}
+
+h3 {
+  font-family: "Merriweather", serif;
+}
+
+.card  {
+  border: none;
+}
+.card-img-left {  
   border-radius: 0 3px 3px 0;
+  width: 150px;
+}
+
+.text-blue {
+  color: #609BFE;
 }
 
 .flex-auto {
@@ -9,12 +28,11 @@
   flex: 0 0 auto;
 }
 
-.h-250 { height: 250px; }
 @media (min-width: 768px) {
-  .h-md-250 { height: 250px; }
+  .w-md-200 { width: 200px; }
 }
 
 .border-top { border-top: 1px solid #e5e5e5; }
 .border-bottom { border-bottom: 1px solid #e5e5e5; }
 
-.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+/* .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); } */

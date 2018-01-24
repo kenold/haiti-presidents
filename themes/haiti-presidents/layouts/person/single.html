@@ -1,44 +1,12 @@
 {{ define "main" }}
 
     <h2>{{ .Params.name }}
-    {{ $count := len .Params.terms }}
-    <small>(served {{ $count }} term{{ if gt ($count) 1 }}s{{ end }})</small></h2>
+    {{ $termCount := len .Params.terms }}
+    <small>(served {{ $termCount }} term{{ if gt ($termCount) 1 }}s{{ end }})</small></h2>
     <p>{{ .Content }}</p>
 
-    <!--  TERMS -->
-    <table class=table>
-        <tr>
-            <td colspan="2"><h3>{{ .Params.name }} Terms</h3></td>
-        </tr>
-        {{ range $term := .Params.terms }}
-            <tr class="info">
-                <th colspan="2">
-                    <h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4>
-                </th>
-            </tr>
-            <tr>
-                <th>Prime Minister{{ if gt (len $term.prime_ministers) 1 }}s{{ end }}</th>
-                <td>
-                    {{ range $term.prime_ministers }}
-                        <p>{{ .name }} ({{ .period }})</p>
-                    {{ end }}
-                </td>
-            </tr>
-            <tr>
-                <th>Preceded by</th>
-                <td>{{ $term.predecessor }}</td>
-            </tr>
-            <tr>
-                <th>Succeeded by</td>
-                <td>{{ $term.successor }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ $term.status }}</td>
-            </tr>
-        {{ end }}
-
-        <!--  PERSONAL DETAILS -->
+    <!--  PERSONAL DETAILS -->
+    <table class=table>        
         <tr>
             <td colspan="2"><h3>{{ .Params.name }} Personal Details</h3></td>
         </tr>
@@ -51,19 +19,7 @@
                 </ul>
 
             </td>
-        </tr>
-        <tr>
-            <th>Political Party</th>
-            <td>
-                <ul class="list-unstyled">
-                    {{ range .Params.political_parties }}
-                        <li>{{ .name }}<br>
-                            ({{ .period }})
-                        </li>
-                    {{ end }}
-                </ul>
-            </td>
-        </tr>
+        </tr>        
         <tr>
             <th>Spouse(s)</th>
             <td>
@@ -96,8 +52,56 @@
                 </ul>
             </td>
         </tr>
+        <tr>
+            <th>Political Party</th>
+            <td>
+                <ul class="list-unstyled">
+                    {{ range .Params.political_parties }}
+                        <li>{{ .name }}<br>
+                            ({{ .period }})
+                        </li>
+                    {{ end }}
+                </ul>
+            </td>
+        </tr>
     </table>
     <!--  END PERSONAL DETAILS -->
+
+    <!--  TERMS -->
+    <table class=table>
+        <tr>
+            <td colspan="2">
+                <h3>{{ .Params.name }} served {{ $termCount }} term{{ if gt ($termCount) 1 }}s{{ end }}.</h3>
+            </td>
+        </tr>
+        {{ range $term := .Params.terms }}
+            <tr class="info">
+                <th colspan="2">
+                    <h4>{{ dateFormat "Jan 2, 2006" .start}} - {{ dateFormat "Jan 2, 2006" .end }}</h4>
+                </th>
+            </tr>
+            <tr>
+                <th>Prime Minister{{ if gt (len $term.prime_ministers) 1 }}s{{ end }}</th>
+                <td>
+                    {{ range $term.prime_ministers }}
+                        <p>{{ .name }} ({{ .period }})</p>
+                    {{ end }}
+                </td>
+            </tr>
+            <tr>
+                <th>Preceded by</th>
+                <td>{{ $term.predecessor }}</td>
+            </tr>
+            <tr>
+                <th>Succeeded by</td>
+                <td>{{ $term.successor }}</td>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <td>{{ $term.status }}</td>
+            </tr>
+        {{ end }}
+    </table>    
 
     <!-- RELATED NEWS -->
 

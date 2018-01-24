@@ -19,9 +19,9 @@ h3 a {
 }
 
 .card:hover {
-	box-shadow: 0 37.125px 70px -28.125px rgba(0,0,0,0.3);
-	padding: 0 10px;
-    margin: 0 -10px;
+	box-shadow: 0 37.125px 70px -17.125px rgba(0,0,0,0.3);
+	padding: 0 10px 0 0;
+    margin: 0 -10px 0 0;
 	overflow: hidden;
 	transition: padding 0.15s cubic-bezier(0.4, 0, 0.2, 1),
 		margin 0.15s cubic-bezier(0.4, 0, 0.2, 1),

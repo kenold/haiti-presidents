@@ -13,6 +13,11 @@ h3 {
 .card  {
   border: none;
 }
+
+.card h3 {
+  font-size: 1.25rem;
+}
+
 .card-img-left {  
   border-radius: 0 3px 3px 0;
   width: 150px;

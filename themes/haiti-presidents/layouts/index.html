@@ -1,4 +1,8 @@
-{{ define "main" }}
+{{ define "current" }}
+    {{ partial "components/current.html" . }}
+{{ end }}
+
+{{ define "main" }}    
     
     <div class="row mb-2">  
         {{ range sort (where .Data.Pages "Section" "person") "Params.position" }}

@@ -1,22 +1,20 @@
 {{ define "main" }}
 
-    <h3>Most Recent Presidents</h3>
-    <div class="row">
-        <ul  class="list-unstyled">
+    <main role="main" class="container">
+        <div class="row mb-2">  
             {{ range sort (where .Data.Pages "Section" "person") "Params.position" }}
                 {{ partial "components/person-list-item.html" . }}
             {{ end }}
-        </ul>
-    </div>
+        </div>
+    </main>  
 
-    <!-- TODO:
-        - [] Print to PDF
-        - Add donate link
-        - Add take-down info in footer
-        - Give wikipedia credit for data source
-        - Add person and news schema
-        - Change text to "Succeeding" if it's current president
-        - Add facts
-    -->
-
+<!-- TODO:
+    - [] Print to PDF
+    - Add donate link
+    - Add take-down info in footer
+    - Give wikipedia credit for data source
+    - Add person and news schema
+    - Change text to "Succeeding" if it's current president
+    - Add facts
+-->
 {{ end }}

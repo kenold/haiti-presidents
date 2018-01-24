@@ -28,7 +28,9 @@ terms:
     status: ""
 political_parties:
   - name: ""
-    period: ""  
+    period: ""
+    color: ""
+    website: ""  
 spouses:
   - name: ""
     period: ""

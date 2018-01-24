@@ -49,9 +49,10 @@
 
 <body>
 	<nav>{{ partial "nav.html" }}</nav>
+	
   	<header>{{ block "header" . }}{{ end }}</header>
-  	<main>
-    <div class="container">		
+
+  	<main role="main" class="container">				
 		{{ block "main" . }}{{ end }}
 	</main>
 

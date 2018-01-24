@@ -6,10 +6,9 @@
     <p>{{ .Content }}</p>
 
     <!--  PERSONAL DETAILS -->
+    <h3>{{ .Params.name }} Personal Details</h3>
+
     <table class=table>        
-        <tr>
-            <td colspan="2"><h3>{{ .Params.name }} Personal Details</h3></td>
-        </tr>
         <tr>
             <th>Born</th>
             <td>
@@ -68,12 +67,9 @@
     <!--  END PERSONAL DETAILS -->
 
     <!--  TERMS -->
-    <table class=table>
-        <tr>
-            <td colspan="2">
-                <h3>{{ .Params.name }} served {{ $termCount }} term{{ if gt ($termCount) 1 }}s{{ end }}.</h3>
-            </td>
-        </tr>
+    <h3>{{ .Params.name }} served {{ $termCount }} term{{ if gt ($termCount) 1 }}s{{ end }}.</h3>
+
+    <table class=table>        
         {{ range $term := .Params.terms }}
             <tr class="info">
                 <th colspan="2">
@@ -132,6 +128,7 @@
 
     <!--  PHOTOS -->
     <h2>{{ .Params.name }} Photos</h2>
+    
     {{ $person := index .Site.Data.photos (.File.TranslationBaseName) }}
     {{ range $person.images }}
         <img src="/images/galleries/{{ $.File.TranslationBaseName }}/{{ .file }}" alt="{{ .Params.caption }}">

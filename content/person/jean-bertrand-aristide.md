@@ -50,5 +50,6 @@ occupation: Priest
 tags: [titid, lavalas, fanmi-lavalas, tet kok la]
 website:
 wikipedia: https://en.wikipedia.org/wiki/Jean-Bertrand_Aristide
+summary: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quia eos vitae rerum dignissimos illum at quae ullam assumenda, enim."
 ---
-Aristide: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quia eos vitae rerum dignissimos illum at quae ullam assumenda, enim. Incidunt tenetur eum fugit rerum nam doloremque, fuga eaque dolorem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quia eos vitae rerum dignissimos illum at quae ullam assumenda, enim. Incidunt tenetur eum fugit rerum nam doloremque, fuga eaque dolorem.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quia eos vitae rerum dignissimos illum at quae ullam assumenda, enim. Incidunt tenetur eum fugit rerum nam doloremque, fuga eaque dolorem. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi quia eos vitae rerum dignissimos illum at quae ullam assumenda, enim. Incidunt tenetur eum fugit rerum nam doloremque, fuga eaque dolorem.
